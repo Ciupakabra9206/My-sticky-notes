@@ -2,7 +2,7 @@ const addBtn = document.querySelector('.add');
 const saveBtn = document.querySelector('.save');
 const cancelBtn = document.querySelector('.cancel');
 const deleteBtn = document.getElementsByClassName('.delete-note');
-const deleteAllBtn = document.getElementsByClassName('.delete-all');
+const deleteAllBtn = document.querySelector('.delete-all');
 
 const noteArea = document.querySelector('.note-area');
 const notePanel = document.querySelector('.note-panel');
@@ -13,3 +13,15 @@ const error = document.querySelector('.error');
 let selectedValue;
 
 let cardID = 0;
+
+const openPanel = () => {
+	notePanel.style.display = 'flex';
+};
+const closePanel = () => {
+	notePanel.style.display = 'none';
+	error.style.visibility = 'hidden';
+	textArea.value = '';
+};
+
+addBtn.addEventListener('click', openPanel);
+cancelBtn.addEventListener('click', closePanel);
