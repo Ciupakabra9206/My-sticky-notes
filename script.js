@@ -42,7 +42,7 @@ const createNote = () => {
 	newNote.setAttribute('id', cardID);
 	newNote.innerHTML = `<div class="note-header">
                             <h3 class="note-title">${selectedValue}</h3>
-                            <button class="delete-note">
+                            <button class="delete-note" onclick="deleteNote(${cardID})">
                             <i class="fas fa-times icon"></i>
                             </button>
                         </div>
@@ -75,6 +75,11 @@ const checkColor = (note) => {
 			break;
 	}
 };
+
+const deleteNote = id =>{
+    const noteTodDelete = document.getElementById(id);
+    noteArea.removeChild(noteTodDelete);
+}
 
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel);
