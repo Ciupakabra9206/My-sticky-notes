@@ -55,7 +55,7 @@ const createNote = () => {
 	textArea.value = '';
 	category.selectedIndex = 0;
 	notePanel.style.display = 'none';
-    checkColor(newNote);
+	checkColor(newNote);
 };
 
 const selectValue = () => {
@@ -76,11 +76,15 @@ const checkColor = (note) => {
 	}
 };
 
-const deleteNote = id =>{
-    const noteTodDelete = document.getElementById(id);
-    noteArea.removeChild(noteTodDelete);
-}
+const deleteNote = (id) => {
+	const noteTodDelete = document.getElementById(id);
+	noteArea.removeChild(noteTodDelete);
+};
+const deleteAllNotes = () => {
+	noteArea.textContent = '';
+};
 
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel);
 saveBtn.addEventListener('click', addNote);
+deleteAllBtn.addEventListener('click', deleteAllNotes);
